@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Report - Implantação ERP Globus na Strada Mob</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            left: -0.625rem;
+            top: 0;
+            border: 4px solid #f1f5f9; /* slate-100 */
+        }
+        .timeline-item-milestone::before { background-color: #0ea5e9; } /* sky-500 */
+        .timeline-item-issue::before { background-color: #f97316; } /* orange-500 */
+        .timeline-item-decision::before { background-color: #10b981; } /* emerald-500 */
+        .timeline-item-meeting::before { background-color: #6366f1; } /* indigo-500 */
+        .timeline-item-start::before { background-color: #22c55e; } /* green-500 */
+        .timeline-item-end::before { background-color: #ef4444; } /* red-500 */
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Reunião de Alinhamento do Projeto</h1>
+            <h2 class="text-5xl md:text-6xl font-extrabold mt-2">Implantação ERP Globus</h2>
+            <p class="mt-4 text-lg text-blue-100">Status Report do Projeto | Strada Mob & Praxio</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Project Dashboard -->
+        <section id="dashboard" class="mb-12 bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 text-center">Painel Geral do Projeto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div>
+                    <p class="text-sm text-slate-500 font-medium">Dias Corridos até Hoje</p>
+                    <p id="daysElapsed" class="text-3xl font-bold text-blue-600">-</p>
+                </div>
+                <div>
+                    <p class="text-sm text-slate-500 font-medium">Período de Estagnação</p>
+                    <p id="stagnationPeriod" class="text-3xl font-bold text-red-600">-</p>
+                </div>
+                 <div>
+                    <p class="text-sm text-slate-500 font-medium">Fase Atual (Treinamento)</p>
+                    <p id="currentPhaseDuration" class="text-3xl font-bold text-green-600">-</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">Linha do Tempo do Projeto</h2>
+            <div class="relative border-l-4 border-slate-200 ml-4 md:ml-0">
+                <div id="timeline-container" class="space-y-12">
+
+                    <!-- Item Março 2025 -->
+                    <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start" data-date="2025-03-17">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                             <p class="font-bold text-sky-600">17 de Março, 2025</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="relative timeline-item timeline-item-milestone">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-sky-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Início do Projeto</h3>
+                                    <p class="text-sm mt-1 text-slate-600">Criação do grupo de comunicação e início das conversas para alinhamento dos treinamentos e apresentações iniciais.</p>
+                                    <!-- No duration text for the first item -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Maio 2025 -->
+                    <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start md:flex-row-reverse" data-date="2025-05-14">
+                        <div class="md:w-1/2 md:pl-8 md:text-left">
+                             <p class="font-bold text-indigo-600">14 de Maio, 2025</p>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                             <div class="relative timeline-item timeline-item-meeting">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-indigo-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Reunião de Kick-off</h3>
+                                    <p class="text-sm mt-1 text-slate-600">Apresentação da metodologia de trabalho da Praxio e detalhamento das fases do projeto para as pessoas-chave da Strada Mob.</p>
+                                    <p class="duration-text text-xs mt-2 font-semibold text-indigo-600 bg-indigo-100 inline-block px-2 py-1 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Junho 2025 -->
+                    <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start" data-date="2025-06-13">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                             <p class="font-bold text-sky-600">13 de Junho, 2025</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8">
+                             <div class="relative timeline-item timeline-item-milestone">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-sky-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Finalização dos Levantamentos Iniciais</h3>
+                                    <p class="text-sm mt-1 text-slate-600">Conclusão da primeira grande etapa do projeto, onde os processos de cada área foram mapeados com os usuários-chave.</p>
+                                    <p class="duration-text text-xs mt-2 font-semibold text-indigo-600 bg-indigo-100 inline-block px-2 py-1 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Julho 2025 (Issue) -->
+                     <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start md:flex-row-reverse" data-date="2025-07-07">
+                        <div class="md:w-1/2 md:pl-8 md:text-left">
+                             <p class="font-bold text-red-600">07 de Julho, 2025</p>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                             <div class="relative timeline-item timeline-item-issue">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-red-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Prazo de Entrega das Planilhas Expirado</h3>
+                                    <p class="text-sm mt-1 text-slate-600">A data limite para envio das planilhas de importação não é cumprida, gerando atraso e bloqueando o início dos treinamentos.</p>
+                                    <p class="duration-text text-xs mt-2 font-semibold text-indigo-600 bg-indigo-100 inline-block px-2 py-1 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Julho 2025 (Milestone) -->
+                    <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start" data-date="2025-07-10">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                             <p class="font-bold text-sky-600">10 de Julho, 2025</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8">
+                             <div class="relative timeline-item timeline-item-milestone">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-sky-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Instalação dos Certificados Digitais</h3>
+                                    <p class="text-sm mt-1 text-slate-600">Equipe técnica da Praxio realiza a instalação dos certificados no ambiente Globus, um passo técnico importante.</p>
+                                    <p class="duration-text text-xs mt-2 font-semibold text-indigo-600 bg-indigo-100 inline-block px-2 py-1 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Agosto 2025 (Issue) -->
+                     <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start md:flex-row-reverse" data-date="2025-08-06">
+                        <div class="md:w-1/2 md:pl-8 md:text-left">
+                            <p class="font-bold text-orange-600">06 de Agosto, 2025</p>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                            <div class="relative timeline-item timeline-item-issue">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-orange-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Alerta de Velocidade do Projeto</h3>
+                                    <p class="text-sm mt-1 text-slate-600">Praxio manifesta preocupação com a baixa velocidade de retorno e itens impeditivos, solicitando reunião de urgência.</p>
+                                    <p class="duration-text text-xs mt-2 font-semibold text-indigo-600 bg-indigo-100 inline-block px-2 py-1 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Agosto 2025 (Decision) -->
+                    <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start" data-date="2025-08-14">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                            <p class="font-bold text-emerald-600">14 de Agosto, 2025</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="relative timeline-item timeline-item-decision">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-emerald-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Decisão: Cadastro Manual de Itens</h3>
+                                    <p class="text-sm mt-1 text-slate-600">A liderança e TI decidem que os cadastros de Estoque, Materiais e Pneus serão feitos manualmente, do zero, no novo sistema.</p>
+                                    <p class="duration-text text-xs mt-2 font-semibold text-indigo-600 bg-indigo-100 inline-block px-2 py-1 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item Setembro 2025 -->
+                    <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start md:flex-row-reverse" data-date="2025-09-08">
+                        <div class="md:w-1/2 md:pl-8 md:text-left">
+                            <p class="font-bold text-green-600">08 de Setembro, 2025</p>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                            <div class="relative timeline-item timeline-item-start">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-green-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Início Efetivo dos Treinamentos</h3>
+                                    <p class="text-sm mt-1 text-slate-600">Começa o cronograma de treinamento intensivo com os módulos de Contas a Pagar, iniciando a fase de capacitação da equipe.</p>
+                                    <p class="duration-text text-xs mt-2 font-semibold text-indigo-600 bg-indigo-100 inline-block px-2 py-1 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item Outubro 2025 -->
+                    <div class="timeline-event relative pl-10 md:pl-0 md:flex md:items-start" data-date="2025-10-21">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                            <p class="font-bold text-sky-600">21 de Outubro, 2025 (Previsto)</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="relative timeline-item timeline-item-end">
+                                <div class="p-5 rounded-lg border border-slate-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:border-sky-300">
+                                    <h3 class="font-semibold text-lg text-slate-800">Término do 1º Ciclo de Treinamentos</h3>
+                                    <p class="text-sm mt-1 text-slate-600">Marco final para a primeira fase de capacitação intensiva dos usuários-chave nos módulos prioritários.</p>
+                                    <p class="duration-text text-xs mt-2 font-semibold text-indigo-600 bg-indigo-100 inline-block px-2 py-1 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="mt-8 text-center text-sm text-slate-500">
+                <p>Legenda: 
+                    <span class="inline-flex items-center mx-2"><span class="w-3 h-3 rounded-full bg-sky-500 mr-1.5"></span>Marco</span>
+                    <span class="inline-flex items-center mx-2"><span class="w-3 h-3 rounded-full bg-orange-500 mr-1.5"></span>Atenção/Risco</span>
+                    <span class="inline-flex items-center mx-2"><span class="w-3 h-3 rounded-full bg-emerald-500 mr-1.5"></span>Decisão</span>
+                    <span class="inline-flex items-center mx-2"><span class="w-3 h-3 rounded-full bg-indigo-500 mr-1.5"></span>Reunião</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Other sections (unchanged) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <section id="risks" class="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 mr-3"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+                    Pontos de Atenção e Riscos
+                </h2>
+                <div class="space-y-4">
+                    <div class="p-4 rounded-md bg-red-50 border border-red-200">
+                        <h3 class="font-semibold text-red-800">RISCO ALTO: Projeto Paralisado</h3>
+                        <p class="text-red-700 text-sm">Atrasos na entrega de dados essenciais (planilhas, backup da folha) bloquearam o avanço por quase 2 meses, impactando todo o cronograma.</p>
+                    </div>
+                    <div class="p-4 rounded-md bg-orange-50 border border-orange-200">
+                        <h3 class="font-semibold text-orange-800">RISCO MÉDIO: Sobrecarga de Usuários-Chave</h3>
+                        <p class="text-orange-700 text-sm">Ana Clara possui múltiplos treinamentos sequenciais, arriscando esgotamento e baixa absorção do conteúdo. Requer acompanhamento e possível mitigação.</p>
+                    </div>
+                    <div class="p-4 rounded-md bg-orange-50 border border-orange-200">
+                        <h3 class="font-semibold text-orange-800">RISCO MÉDIO: Dependência de Terceiros</h3>
+                        <p class="text-orange-700 text-sm">A conversão de dados da Folha de Pagamento depende do fornecedor Fortes, adicionando incerteza ao planejamento dos módulos de RH e Operacional.</p>
+                    </div>
+                    <div class="p-4 rounded-md bg-yellow-50 border border-yellow-200">
+                        <h3 class="font-semibold text-yellow-800">ATENÇÃO: Processo Inexistente (Pneus)</h3>
+                        <p class="text-yellow-700 text-sm">A falta de identificação individual dos pneus ("numeração de fogo") é um pré-requisito para o uso efetivo do módulo. A criação deste processo é necessária.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="decisions" class="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500 mr-3"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    Decisões Importantes
+                </h2>
+                <ul class="space-y-3 list-inside">
+                    <li class="p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800">
+                        <span class="font-semibold">Cadastro Manual de Itens:</span> A equipe decidiu cadastrar Estoque, Materiais e Pneus manualmente, do zero, no novo sistema.
+                    </li>
+                    <li class="p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800">
+                        <span class="font-semibold">Aprovação do Cronograma:</span> O plano de treinamento para os módulos não dependentes da Folha de Pagamento foi aprovado, com início em 08/09.
+                    </li>
+                    <li class="p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800">
+                        <span class="font-semibold">Estrutura de Treinamento:</span> A capacitação foi dividida em duas etapas lógicas: primeiro Cadastros, depois Movimentação, para garantir a base de conhecimento.
+                    </li>
+                     <li class="p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800">
+                        <span class="font-semibold">Usuários-Chave Definidos:</span> A lista de responsáveis por cada módulo foi formalizada, garantindo um ponto focal em cada área da empresa.
+                    </li>
+                </ul>
+            </section>
+             <section id="dependencies" class="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500 mr-3"><path d="M10 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4"></path><polyline points="14 15 9 20 4 15"></polyline><path d="M14 21h4a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-4"></path><polyline points="10 9 15 4 20 9"></polyline></svg>
+                    Dependências Críticas
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">1</div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-semibold text-slate-800">Treinamentos de RH e Operacional</h3>
+                            <p class="text-slate-600 text-sm">
+                                Estão <span class="font-bold text-red-600">BLOQUEADOS</span> e só podem ser planejados após a finalização da conversão de dados da <span class="font-semibold">Folha de Pagamento</span>.
+                            </p>
+                        </div>
+                    </div>
+                     <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">2</div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-semibold text-slate-800">Conversão da Folha de Pagamento</h3>
+                            <p class="text-slate-600 text-sm">
+                                Depende criticamente da resolução de problemas técnicos do backup e do recebimento do <span class="font-semibold">dicionário de dados</span> do fornecedor <span class="font-semibold">Fortes</span>.
+                            </p>
+                        </div>
+                    </div>
+                     <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">3</div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-semibold text-slate-800">Implantação do Módulo de Pneus</h3>
+                            <p class="text-slate-600 text-sm">
+                                Requer a criação de um <span class="font-semibold">processo interno</span> de identificação ("numeração de fogo") para ser efetivo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="responsibles" class="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 mr-3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Usuários-Chave por Módulo
+                </h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-slate-100 text-slate-600 uppercase">
+                            <tr>
+                                <th scope="col" class="px-4 py-3">Módulo</th>
+                                <th scope="col" class="px-4 py-3">Responsável</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b"><td class="px-4 py-2 font-medium">Frota / DVS</td><td class="px-4 py-2">Marcela</td></tr>
+                            <tr class="border-b bg-slate-50"><td class="px-4 py-2 font-medium">Manutenção / Pneus</td><td class="px-4 py-2">Marlon Da Silva</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2 font-medium">Estoque / Compras</td><td class="px-4 py-2">Marcos S. Braga / Vitor Medeiros</td></tr>
+                            <tr class="border-b bg-slate-50"><td class="px-4 py-2 font-medium">Folha / Ponto / RH</td><td class="px-4 py-2">Salete Ribeiro</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2 font-medium">Financeiro</td><td class="px-4 py-2">Bruna R. Espíndola / Millena Lima</td></tr>
+                            <tr class="border-b bg-slate-50"><td class="px-4 py-2 font-medium">Contratos / Fretamento</td><td class="px-4 py-2">Maria de Fátima Oliveira</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2 font-medium">Contábil / Fiscal</td><td class="px-4 py-2">Ana Clara</td></tr>
+                            <tr class="border-b bg-slate-50"><td class="px-4 py-2 font-medium">Acidentes</td><td class="px-4 py-2">Roberto Dos Santos</td></tr>
+                             <tr class=""><td class="px-4 py-2 font-bold bg-blue-100 text-blue-800">Gestor do Projeto (Strada)</td><td class="px-4 py-2 font-bold bg-blue-100 text-blue-800">Diego Lima</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 mt-12">
+        <div class="container mx-auto p-6 text-center text-sm">
+            <p>&copy; 2025 Strada Mob | Status Report de Implantação do ERP Globus</p>
+            <p>Este documento foi gerado para fins de alinhamento interno.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ONE_DAY_MS = 1000 * 60 * 60 * 24;
+
+            // Helper function to calculate days between two Date objects
+            const calculateDaysBetween = (date1, date2) => {
+                const utc1 = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());
+                const utc2 = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());
+                return Math.floor((utc2 - utc1) / ONE_DAY_MS);
+            };
+
+            // --- Dashboard Calculations ---
+            const startDate = new Date('2025-03-17T12:00:00Z');
+            const stagnationStartDate = new Date('2025-06-13T12:00:00Z');
+            const stagnationEndDate = new Date('2025-09-08T12:00:00Z');
+            const trainingStartDate = new Date('2025-09-08T12:00:00Z');
+            const today = new Date('2025-09-29T12:00:00Z'); // Fixed date for consistent reporting
+
+            // Days Elapsed
+            const daysElapsed = calculateDaysBetween(startDate, today);
+            document.getElementById('daysElapsed').textContent = `${daysElapsed} dias`;
+
+            // Stagnation Period
+            const stagnationDays = calculateDaysBetween(stagnationStartDate, stagnationEndDate);
+            document.getElementById('stagnationPeriod').textContent = `${stagnationDays} dias`;
+
+            // Current Phase Duration
+            const currentPhaseDays = calculateDaysBetween(trainingStartDate, today);
+            document.getElementById('currentPhaseDuration').textContent = `${currentPhaseDays} dias`;
+
+            // --- Timeline Durations ---
+            const timelineEvents = Array.from(document.querySelectorAll('.timeline-event'));
+            
+            timelineEvents.forEach((event, index) => {
+                if (index === 0) return; // Skip the very first event (no previous one to calculate from)
+                const prevEvent = timelineEvents[index - 1]; 
+
+                const currentDate = new Date(`${event.dataset.date}T12:00:00Z`);
+                const prevDate = new Date(`${prevEvent.dataset.date}T12:00:00Z`);
+                
+                const duration = calculateDaysBetween(prevDate, currentDate);
+                const durationEl = event.querySelector('.duration-text');
+                
+                if (durationEl) {
+                    durationEl.textContent = `Intervalo: ${duration} dia${duration === 1 ? '' : 's'}`;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
